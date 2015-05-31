@@ -88,6 +88,7 @@
     <Compile Include="BillsPage.xaml.cs">
       <DependentUpon>BillsPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Controls\ImprovedFlipView.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

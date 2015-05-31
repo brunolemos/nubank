@@ -2,10 +2,9 @@
     x:Class="Nubank.BillsPage"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:local="using:Nubank"
+    xmlns:local="using:Nubank.Controls"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    xmlns:synergist="using:Synergist" 
     mc:Ignorable="d"
     Background="White">
 
@@ -21,8 +20,8 @@
                     <ColumnDefinition Width="Auto"/>
                 </Grid.ColumnDefinitions>
 
-                <TextBlock Grid.Column="0" Text="DE 5 MAR ATÉ 5 ABR" Foreground="#a9a9a9"/>
-                <TextBlock Grid.Column="2" Text="VALORES EM R$" Foreground="#a9a9a9"/>
+                <TextBlock Grid.Column="0" Text="DE 5 MAR ATÉ 5 ABR" Foreground="#a9a9a9" FontSize="{StaticResource PhoneDefaultFontSize}"/>
+                <TextBlock Grid.Column="2" Text="VALORES EM R$" Foreground="#a9a9a9" FontSize="{StaticResource PhoneDefaultFontSize}"/>
             </Grid>
         </DataTemplate>
 
@@ -38,8 +37,8 @@
         <Style x:Key="BillListViewStyle" TargetType="ListView">
             <Setter Property="HeaderTemplate" Value="{StaticResource BillListViewHeaderTemplate}"/>
             <Setter Property="ItemTemplate" Value="{StaticResource BillListViewDataTemplate}"/>
-            <Setter Property="Margin" Value="0,24"/>
-            <Setter Property="Padding" Value="18,0"/>
+            <Setter Property="Margin" Value="0"/>
+            <Setter Property="Padding" Value="18,24"/>
         </Style>
 
         <Style TargetType="Pivot">
@@ -64,10 +63,11 @@
             <PivotItem Header="JUL"/>
             <PivotItem Header="AGO"/>
         </Pivot>
-        
-        <FlipView x:Name="BillFlipView" Grid.Row="1">
-            <PivotItem Header="MAY">
-                <StackPanel>
+
+        <local:ImprovedFlipView Grid.Row="1" x:Name="BillFlipView">
+            <PivotItem Header="MAY" ScrollViewer.VerticalScrollMode="Enabled" ScrollViewer.VerticalScrollBarVisibility="Visible">
+                <ScrollViewer VerticalScrollBarVisibility="Visible" VerticalScrollMode="Enabled">
+                    <StackPanel>
                         <Grid MinHeight="180" Background="#7ED321" RequestedTheme="Dark">
                             <StackPanel Margin="18" VerticalAlignment="Center">
                                 <TextBlock Text="R$ 2.300,10" Margin="0,0,0,6" FontWeight="SemiBold" FontSize="{StaticResource TextStyleExtraLargeFontSize}" HorizontalAlignment="Center"/>
@@ -90,10 +90,11 @@
                             <x:String>Gol Linhas Aéreas</x:String>
                         </ListView>
                     </StackPanel>
+                </ScrollViewer>
             </PivotItem>
 
             <PivotItem Header="JUN">
-                <ScrollViewer>
+                <ScrollViewer VerticalScrollBarVisibility="Visible" VerticalScrollMode="Enabled">
                     <StackPanel>
                         <Grid MinHeight="180" Background="#E5615C" RequestedTheme="Dark">
                             <StackPanel Margin="18" VerticalAlignment="Center">
@@ -139,35 +140,35 @@
             </PivotItem>
 
             <PivotItem Header="JUL">
-                <ScrollViewer>
-                        <StackPanel>
-                            <Grid MinHeight="180" Background="#40AAB9" RequestedTheme="Dark">
-                                <StackPanel Margin="18" VerticalAlignment="Center">
-                                    <TextBlock Text="R$ 1.890,80" Margin="0,0,0,6" FontWeight="SemiBold" FontSize="{StaticResource TextStyleExtraLargeFontSize}" HorizontalAlignment="Center"/>
-                                    <TextBlock Text="Vencimento 15 JUL" Margin="0" FontWeight="Light" FontSize="{StaticResource TextStyleLargeFontSize}" HorizontalAlignment="Center"/>
-                                    <TextBlock Text="FECHAMENTO EM 5 JUL" Margin="0,12,0,0" FontWeight="Light" FontSize="{StaticResource TextStyleMediumFontSize}" HorizontalAlignment="Center" Opacity="0.6"/>
-                                </StackPanel>
-                            </Grid>
+                <ScrollViewer VerticalScrollBarVisibility="Visible" VerticalScrollMode="Enabled">
+                    <StackPanel>
+                        <Grid MinHeight="180" Background="#40AAB9" RequestedTheme="Dark">
+                            <StackPanel Margin="18" VerticalAlignment="Center">
+                                <TextBlock Text="R$ 1.890,80" Margin="0,0,0,6" FontWeight="SemiBold" FontSize="{StaticResource TextStyleExtraLargeFontSize}" HorizontalAlignment="Center"/>
+                                <TextBlock Text="Vencimento 15 JUL" Margin="0" FontWeight="Light" FontSize="{StaticResource TextStyleLargeFontSize}" HorizontalAlignment="Center"/>
+                                <TextBlock Text="FECHAMENTO EM 5 JUL" Margin="0,12,0,0" FontWeight="Light" FontSize="{StaticResource TextStyleMediumFontSize}" HorizontalAlignment="Center" Opacity="0.6"/>
+                            </StackPanel>
+                        </Grid>
 
-                            <Border Background="White" BorderThickness="0,0,0,1" BorderBrush="{StaticResource PhoneChromeBrush}" RequestedTheme="Light">
-                                <StackPanel Margin="18,36">
-                                    <Button Content="GERAR BOLETO" Padding="18" BorderThickness="1" BorderBrush="#40AAB9" Foreground="#40AAB9" HorizontalAlignment="Stretch" RequestedTheme="Dark"/>
-                                </StackPanel>
-                            </Border>
+                        <Border Background="White" BorderThickness="0,0,0,1" BorderBrush="{StaticResource PhoneChromeBrush}" RequestedTheme="Light">
+                            <StackPanel Margin="18,36">
+                                <Button Content="GERAR BOLETO" Padding="18" BorderThickness="1" BorderBrush="#40AAB9" Foreground="#40AAB9" HorizontalAlignment="Stretch" RequestedTheme="Dark"/>
+                            </StackPanel>
+                        </Border>
 
-                            <ListView Style="{StaticResource BillListViewStyle}">
-                                <x:String>GTX Telecom</x:String>
-                                <x:String>Submarino Viagens</x:String>
-                                <x:String>Claro Recarga</x:String>
-                                <x:String>Na Cozinha</x:String>
-                                <x:String>Gol Linhas Aéreas</x:String>
-                            </ListView>
-                        </StackPanel>
-                    </ScrollViewer>
+                        <ListView Style="{StaticResource BillListViewStyle}">
+                            <x:String>GTX Telecom</x:String>
+                            <x:String>Submarino Viagens</x:String>
+                            <x:String>Claro Recarga</x:String>
+                            <x:String>Na Cozinha</x:String>
+                            <x:String>Gol Linhas Aéreas</x:String>
+                        </ListView>
+                    </StackPanel>
+                </ScrollViewer>
             </PivotItem>
 
             <PivotItem Header="AGO">
-                <ScrollViewer>
+                <ScrollViewer VerticalScrollBarVisibility="Visible" VerticalScrollMode="Enabled">
                     <StackPanel>
                         <Grid MinHeight="180" Background="#F5A623" RequestedTheme="Dark">
                             <StackPanel Margin="18" VerticalAlignment="Center">
@@ -187,6 +188,6 @@
                     </StackPanel>
                 </ScrollViewer>
             </PivotItem>
-        </FlipView>
+        </local:ImprovedFlipView>
     </Grid>
 </Page>
