@@ -17,8 +17,10 @@ namespace Nubank.Controls
 
         void ScrollViewer_ViewChanged(object sender, ScrollViewerViewChangedEventArgs e)
         {
+#if WINDOWS_PHONE_APP
             int index = (int)Math.Round(this.ScrollViewer.HorizontalOffset - 2);
             if (this.SelectedIndex != index) this.SelectedIndex = index;
+#endif
         }
     }
 }

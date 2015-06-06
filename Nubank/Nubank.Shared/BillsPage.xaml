@@ -6,11 +6,12 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
-    Background="White">
+    Background="White"
+    Foreground="#686868">
 
     <Page.Resources>
         <DataTemplate x:Key="BillsPivotHeaderTemplate">
-            <TextBlock Margin="0,12,0,6" Text="{Binding}" FontSize="{StaticResource TextStyleLargeFontSize}"/>
+            <TextBlock Text="{Binding}" FontSize="24"/>
         </DataTemplate>
 
         <DataTemplate x:Key="BillListViewHeaderTemplate">
@@ -47,38 +48,42 @@
 
         <Style TargetType="PivotItem">
             <Setter Property="Margin" Value="0"/>
-            <Setter Property="Background" Value="{ThemeResource ApplicationPageBackgroundThemeBrush}"/>
+            <Setter Property="Background" Value="White"/>
         </Style>
+
+        <!--<Style TargetType="FlipViewItem">
+            <Setter Property="MaxWidth" Value="500"/>
+        </Style>-->
     </Page.Resources>
 
-    <Grid x:Name="LayoutRoot">
+    <Grid x:Name="LayoutRoot" Background="White">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
         
-        <Pivot SelectedIndex="{Binding ElementName=BillFlipView, Path=SelectedIndex, Mode=TwoWay}">
-            <PivotItem Header="MAY"/>
-            <PivotItem Header="JUN"/>
-            <PivotItem Header="JUL"/>
-            <PivotItem Header="AGO"/>
+        <Pivot Margin="0,12,0,6" SelectedIndex="{Binding ElementName=BillFlipView, Path=SelectedIndex, Mode=TwoWay}">
+            <PivotItem Header="maio"/>
+            <PivotItem Header="junho"/>
+            <PivotItem Header="julho"/>
+            <PivotItem Header="agosto"/>
         </Pivot>
 
         <local:ImprovedFlipView Grid.Row="1" x:Name="BillFlipView">
-            <PivotItem Header="MAY" ScrollViewer.VerticalScrollMode="Enabled" ScrollViewer.VerticalScrollBarVisibility="Visible">
-                <ScrollViewer VerticalScrollBarVisibility="Visible" VerticalScrollMode="Enabled">
+            <PivotItem Header="maio">
+                <ScrollViewer VerticalScrollBarVisibility="Visible" VerticalScrollMode="Enabled" Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
                     <StackPanel>
-                        <Grid MinHeight="180" Background="#7ED321" RequestedTheme="Dark">
+                        <Grid MinHeight="160" Background="#7ED321" RequestedTheme="Dark">
                             <StackPanel Margin="18" VerticalAlignment="Center">
-                                <TextBlock Text="R$ 2.300,10" Margin="0,0,0,6" FontWeight="SemiBold" FontSize="{StaticResource TextStyleExtraLargeFontSize}" HorizontalAlignment="Center"/>
-                                <TextBlock Text="Vencimento 15 MAI" Margin="0" FontWeight="Light" FontSize="{StaticResource TextStyleLargeFontSize}" HorizontalAlignment="Center"/>
+                                <TextBlock Text="R$ 2.300,10" Margin="0,3" FontWeight="SemiBold" FontSize="28" HorizontalAlignment="Center"/>
+                                <TextBlock Text="Vencimento 15 MAI" Margin="0,3" FontWeight="Light" FontSize="18" HorizontalAlignment="Center"/>
                             </StackPanel>
                         </Grid>
 
-                        <Border Background="White" BorderThickness="0,0,0,1" BorderBrush="{StaticResource PhoneChromeBrush}" RequestedTheme="Light">
-                            <StackPanel Margin="18,36">
-                                <TextBlock Text="PAGAMENTO RECEBIDO" Margin="0,0,0,6" FontWeight="Light" FontSize="{StaticResource TextStyleLargeFontSize}" Foreground="#7ED321" HorizontalAlignment="Center"/>
-                                <TextBlock Text="R$ 2.300,10" Margin="0" FontWeight="SemiBold" FontSize="{StaticResource TextStyleExtraLargeFontSize}" Foreground="#7ED321" HorizontalAlignment="Center"/>
+                        <Border Background="White" BorderThickness="0,0,0,1" BorderBrush="#33000000" RequestedTheme="Light">
+                            <StackPanel Margin="18,24">
+                                <TextBlock Text="PAGAMENTO RECEBIDO" Margin="0,3" FontWeight="Light" FontSize="18" Foreground="#7ED321" HorizontalAlignment="Center"/>
+                                <TextBlock Text="R$ 2.300,10" Margin="0,3" FontWeight="SemiBold" FontSize="28" Foreground="#7ED321" HorizontalAlignment="Center"/>
                             </StackPanel>
                         </Border>
 
@@ -93,18 +98,18 @@
                 </ScrollViewer>
             </PivotItem>
 
-            <PivotItem Header="JUN">
-                <ScrollViewer VerticalScrollBarVisibility="Visible" VerticalScrollMode="Enabled">
+            <PivotItem Header="junho">
+                <ScrollViewer VerticalScrollBarVisibility="Visible" VerticalScrollMode="Enabled" Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
                     <StackPanel>
-                        <Grid MinHeight="180" Background="#E5615C" RequestedTheme="Dark">
-                            <StackPanel Margin="18" VerticalAlignment="Center">
-                                    <TextBlock Text="R$ 3.670,22" Margin="0,0,0,6" FontWeight="SemiBold" FontSize="{StaticResource TextStyleExtraLargeFontSize}" HorizontalAlignment="Center"/>
-                                <TextBlock Text="Vencimento 15 JUN" Margin="0" FontWeight="Light" FontSize="{StaticResource TextStyleLargeFontSize}" HorizontalAlignment="Center"/>
+                        <Grid MinHeight="160" Background="#E5615C" RequestedTheme="Dark">
+                            <StackPanel Margin="18,24" VerticalAlignment="Center">
+                                    <TextBlock Text="R$ 3.670,22" Margin="0,3" FontWeight="SemiBold" FontSize="28" HorizontalAlignment="Center"/>
+                                <TextBlock Text="Vencimento 15 JUN" Margin="0,3" FontWeight="Light" FontSize="18" HorizontalAlignment="Center"/>
                             </StackPanel>
                         </Grid>
 
-                        <Border Background="White" BorderThickness="0,0,0,1" BorderBrush="{StaticResource PhoneChromeBrush}" RequestedTheme="Light">
-                            <StackPanel Margin="18,36">
+                        <Border Background="White" BorderThickness="0,0,0,1" BorderBrush="#33000000" RequestedTheme="Light">
+                            <StackPanel Margin="18">
                                 <Grid Margin="0,0,0,12">
                                     <Grid.ColumnDefinitions>
                                         <ColumnDefinition Width="*"/>
@@ -139,19 +144,19 @@
                 </ScrollViewer>
             </PivotItem>
 
-            <PivotItem Header="JUL">
-                <ScrollViewer VerticalScrollBarVisibility="Visible" VerticalScrollMode="Enabled">
+            <PivotItem Header="julho">
+                <ScrollViewer VerticalScrollBarVisibility="Visible" VerticalScrollMode="Enabled" Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
                     <StackPanel>
-                        <Grid MinHeight="180" Background="#40AAB9" RequestedTheme="Dark">
+                        <Grid MinHeight="160" Background="#40AAB9" RequestedTheme="Dark">
                             <StackPanel Margin="18" VerticalAlignment="Center">
-                                <TextBlock Text="R$ 1.890,80" Margin="0,0,0,6" FontWeight="SemiBold" FontSize="{StaticResource TextStyleExtraLargeFontSize}" HorizontalAlignment="Center"/>
-                                <TextBlock Text="Vencimento 15 JUL" Margin="0" FontWeight="Light" FontSize="{StaticResource TextStyleLargeFontSize}" HorizontalAlignment="Center"/>
-                                <TextBlock Text="FECHAMENTO EM 5 JUL" Margin="0,12,0,0" FontWeight="Light" FontSize="{StaticResource TextStyleMediumFontSize}" HorizontalAlignment="Center" Opacity="0.6"/>
+                                <TextBlock Text="R$ 1.890,80" Margin="0,3" FontWeight="SemiBold" FontSize="28" HorizontalAlignment="Center"/>
+                                <TextBlock Text="Vencimento 15 JUL" Margin="0,3" FontWeight="Light" FontSize="18" HorizontalAlignment="Center"/>
+                                <TextBlock Text="FECHAMENTO EM 5 JUL" Margin="0,18,0,3" FontWeight="Light" FontSize="14" HorizontalAlignment="Center" Opacity="0.6"/>
                             </StackPanel>
                         </Grid>
 
-                        <Border Background="White" BorderThickness="0,0,0,1" BorderBrush="{StaticResource PhoneChromeBrush}" RequestedTheme="Light">
-                            <StackPanel Margin="18,36">
+                        <Border Background="White" BorderThickness="0,0,0,1" BorderBrush="#33000000" RequestedTheme="Light">
+                            <StackPanel Margin="18,24">
                                 <Button Content="GERAR BOLETO" Padding="18" BorderThickness="1" BorderBrush="#40AAB9" Foreground="#40AAB9" HorizontalAlignment="Stretch" RequestedTheme="Dark"/>
                             </StackPanel>
                         </Border>
@@ -167,14 +172,14 @@
                 </ScrollViewer>
             </PivotItem>
 
-            <PivotItem Header="AGO">
-                <ScrollViewer VerticalScrollBarVisibility="Visible" VerticalScrollMode="Enabled">
+            <PivotItem Header="agosto">
+                <ScrollViewer VerticalScrollBarVisibility="Visible" VerticalScrollMode="Enabled" Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
                     <StackPanel>
-                        <Grid MinHeight="180" Background="#F5A623" RequestedTheme="Dark">
+                        <Grid MinHeight="160" Background="#F5A623" RequestedTheme="Dark">
                             <StackPanel Margin="18" VerticalAlignment="Center">
-                                    <TextBlock Text="R$ 350,00" Margin="0,0,0,6" FontWeight="SemiBold" FontSize="{StaticResource TextStyleExtraLargeFontSize}" HorizontalAlignment="Center"/>
-                                <TextBlock Text="Vencimento 15 AGO" Margin="0" FontWeight="Light" FontSize="{StaticResource TextStyleLargeFontSize}" HorizontalAlignment="Center"/>
-                                <TextBlock Text="FATURA PARCIAL" Margin="0,12,0,0" FontWeight="Light" FontSize="{StaticResource TextStyleMediumFontSize}" HorizontalAlignment="Center" Opacity="0.6"/>
+                                    <TextBlock Text="R$ 350,00" Margin="0,3" FontWeight="SemiBold" FontSize="28" HorizontalAlignment="Center"/>
+                                <TextBlock Text="Vencimento 15 AGO" Margin="0,3" FontWeight="Light" FontSize="18" HorizontalAlignment="Center"/>
+                                <TextBlock Text="FATURA PARCIAL" Margin="0,18,0,3" FontWeight="Light" FontSize="14" HorizontalAlignment="Center" Opacity="0.6"/>
                             </StackPanel>
                         </Grid>
 

@@ -2,6 +2,7 @@
 using Windows.UI;
 using Windows.UI.ViewManagement;
 using Windows.UI.Xaml.Controls;
+using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 
 namespace Nubank
@@ -21,11 +22,13 @@ namespace Nubank
 
         private void OnLoaded(object sender, Windows.UI.Xaml.RoutedEventArgs e)
         {
+#if WINDOWS_PHONE_APP
             var statusBar = StatusBar.GetForCurrentView();
 
             statusBar.BackgroundOpacity = 1;
-            statusBar.BackgroundColor = Colors.White;
-            statusBar.ForegroundColor = Color.FromArgb(0xff, 0x68, 0x68, 0x68);
+            statusBar.BackgroundColor = (Background as SolidColorBrush).Color;
+            statusBar.ForegroundColor = (Foreground as SolidColorBrush).Color;
+#endif
         }
 
 

@@ -12,15 +12,31 @@
     <ApplicationDefinition Include="$(MSBuildThisFileDirectory)App.xaml">
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="$(MSBuildThisFileDirectory)API\Responses\BillsResponseItem.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)API\Responses\BillsResponse.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)BillsPage.xaml.cs">
+      <DependentUpon>BillsPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="$(MSBuildThisFileDirectory)Common\NavigationHelper.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Common\Notifiable.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Common\ObservableDictionary.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Common\RelayCommand.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Common\SuspensionManager.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Controls\ImprovedFlipView.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\Bill.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\Links.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\BillItem.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\ModelBase.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\Summary.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Page Include="$(MSBuildThisFileDirectory)BillsPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="$(MSBuildThisFileDirectory)Resources\DefaultResourceDictionary.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -33,5 +49,11 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="$(MSBuildThisFileDirectory)ViewModel\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="$(MSBuildThisFileDirectory)bills.json" />
   </ItemGroup>
 </Project>
