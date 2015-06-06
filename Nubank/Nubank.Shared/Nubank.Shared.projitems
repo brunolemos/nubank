@@ -26,6 +26,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Common\RelayCommand.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Common\SuspensionManager.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Controls\BillStateTemplateSelector.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Controls\FixedPivot.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Controls\ImprovedFlipView.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Converters\BillStateToBrushConverter.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Converters\CustomDateFormatUpperCaseConverter.cs" />
@@ -62,6 +63,9 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="$(MSBuildThisFileDirectory)Assets\Fonts\OpenSans-Light.ttf" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\Fonts\OpenSans-Regular.ttf" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\Fonts\OpenSans-Semibold.ttf" />
     <Content Include="$(MSBuildThisFileDirectory)bills.json" />
   </ItemGroup>
 </Project>

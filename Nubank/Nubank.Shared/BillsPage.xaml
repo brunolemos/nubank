@@ -9,7 +9,8 @@
     xmlns:ViewModels="using:Nubank.ViewModels"
     mc:Ignorable="d"
     Background="White"
-    Foreground="#686868">
+    Foreground="#686868"
+    FontFamily="Assets/Fonts/OpenSans-Regular.ttf#Open Sans">
 
     <Page.Resources>
         <Converters:CentsToCurrencyFormatConverter x:Key="CentsToCurrencyFormatConverter"/>
@@ -19,7 +20,7 @@
         <ViewModels:BillsViewModel x:Key="BillsViewModel" />
 
         <DataTemplate x:Key="BillsPivotHeaderTemplate">
-            <TextBlock Text="{Binding Summary.OpenDate, Converter={StaticResource CustomDateFormatLowerCaseConverter}, ConverterParameter='MMMM'}" Foreground="{Binding State, Converter={StaticResource BillStateToBrushConverter}}" FontSize="24"/>
+            <TextBlock Margin="0,0,0,3" Text="{Binding Summary.OpenDate, Converter={StaticResource CustomDateFormatLowerCaseConverter}, ConverterParameter='MMMM'}" FontSize="24" Foreground="{Binding State, Converter={StaticResource BillStateToBrushConverter}}" Opacity="1"/>
         </DataTemplate>
 
         <DataTemplate x:Key="BillListViewHeaderTemplate">
@@ -55,8 +56,8 @@
                 <StackPanel>
                     <Grid MinHeight="160" Background="{StaticResource OverdueBillBrush}" RequestedTheme="Dark">
                         <StackPanel Margin="18" VerticalAlignment="Center">
-                            <TextBlock Text="{Binding Summary.TotalBalance, Converter={StaticResource CentsToCurrencyFormatConverter}}" Margin="0,3" FontWeight="SemiBold" FontSize="28" HorizontalAlignment="Center"/>
-                            <TextBlock Margin="0,3" FontWeight="Light" FontSize="18" HorizontalAlignment="Center">
+                            <TextBlock Text="{Binding Summary.TotalBalance, Converter={StaticResource CentsToCurrencyFormatConverter}}" FontWeight="Normal" FontSize="28" HorizontalAlignment="Center"/>
+                            <TextBlock FontWeight="Light" FontSize="18" HorizontalAlignment="Center">
                                 <Run Text="Vencimento"/>
                                 <Run Text="{Binding Summary.DueDate, Converter={StaticResource CustomDateFormatUpperCaseConverter}, ConverterParameter='d MMM'}"/>
                             </TextBlock>
@@ -64,9 +65,9 @@
                     </Grid>
 
                     <Border Background="White" BorderThickness="0,0,0,1" BorderBrush="#33000000" RequestedTheme="Light">
-                        <StackPanel Margin="18,24">
-                            <TextBlock Text="PAGAMENTO RECEBIDO" Margin="0,3" FontWeight="Light" FontSize="18" Foreground="{StaticResource OverdueBillBrush}" HorizontalAlignment="Center"/>
-                            <TextBlock Text="{Binding Summary.Paid, Converter={StaticResource CentsToCurrencyFormatConverter}}" Margin="0,3" FontWeight="SemiBold" FontSize="28" Foreground="{StaticResource OverdueBillBrush}" HorizontalAlignment="Center"/>
+                        <StackPanel Margin="18,30">
+                            <TextBlock Text="PAGAMENTO RECEBIDO" FontWeight="Light" FontSize="18" Foreground="{StaticResource OverdueBillBrush}" HorizontalAlignment="Center"/>
+                            <TextBlock Text="{Binding Summary.Paid, Converter={StaticResource CentsToCurrencyFormatConverter}}" FontWeight="Normal" FontSize="28" Foreground="{StaticResource OverdueBillBrush}" HorizontalAlignment="Center"/>
                         </StackPanel>
                     </Border>
 
@@ -79,9 +80,9 @@
             <ScrollViewer VerticalScrollBarVisibility="Visible" VerticalScrollMode="Enabled" Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
                 <StackPanel>
                     <Grid MinHeight="160" Background="{StaticResource ClosedBillBrush}" RequestedTheme="Dark">
-                        <StackPanel Margin="18,24" VerticalAlignment="Center">
-                            <TextBlock Text="{Binding Summary.TotalBalance, Converter={StaticResource CentsToCurrencyFormatConverter}}" Margin="0,3" FontWeight="SemiBold" FontSize="28" HorizontalAlignment="Center"/>
-                            <TextBlock Margin="0,3" FontWeight="Light" FontSize="18" HorizontalAlignment="Center">
+                        <StackPanel Margin="18,30" VerticalAlignment="Center">
+                            <TextBlock Text="{Binding Summary.TotalBalance, Converter={StaticResource CentsToCurrencyFormatConverter}}" FontWeight="Normal" FontSize="28" HorizontalAlignment="Center"/>
+                            <TextBlock FontWeight="Light" FontSize="18" HorizontalAlignment="Center">
                                 <Run Text="Vencimento"/>
                                 <Run Text="{Binding Summary.DueDate, Converter={StaticResource CustomDateFormatUpperCaseConverter}, ConverterParameter='d MMM'}"/>
                             </TextBlock>
@@ -89,7 +90,7 @@
                     </Grid>
 
                     <Border Background="White" BorderThickness="0,0,0,1" BorderBrush="#33000000" RequestedTheme="Light">
-                        <StackPanel Margin="18">
+                        <StackPanel Margin="18,30">
                             <!--<Grid Margin="0,0,0,12">
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="*"/>
@@ -123,12 +124,12 @@
                 <StackPanel>
                     <Grid MinHeight="160" Background="{StaticResource OpenBillBrush}" RequestedTheme="Dark">
                         <StackPanel Margin="18" VerticalAlignment="Center">
-                            <TextBlock Text="{Binding Summary.TotalBalance, Converter={StaticResource CentsToCurrencyFormatConverter}}" Margin="0,3" FontWeight="SemiBold" FontSize="28" HorizontalAlignment="Center"/>
-                            <TextBlock Margin="0,3" FontWeight="Light" FontSize="18" HorizontalAlignment="Center">
+                            <TextBlock Text="{Binding Summary.TotalBalance, Converter={StaticResource CentsToCurrencyFormatConverter}}" FontWeight="Normal" FontSize="28" HorizontalAlignment="Center"/>
+                            <TextBlock FontWeight="Light" FontSize="18" HorizontalAlignment="Center">
                                 <Run Text="Vencimento"/>
                                 <Run Text="{Binding Summary.DueDate, Converter={StaticResource CustomDateFormatUpperCaseConverter}, ConverterParameter='d MMM'}"/>
                             </TextBlock>
-                            <TextBlock Margin="0,12,0,3" FontWeight="Light" FontSize="14" HorizontalAlignment="Center" Opacity="0.6">
+                            <TextBlock Margin="0,6,0,0" FontWeight="Light" FontSize="14" HorizontalAlignment="Center" Opacity="0.6">
                                 <Run Text="FECHAMENTO EM"/>
                                 <Run Text="{Binding Summary.CloseDate, Converter={StaticResource CustomDateFormatUpperCaseConverter}, ConverterParameter='d MMM'}"/>
                             </TextBlock>
@@ -136,7 +137,7 @@
                     </Grid>
 
                     <Border Background="White" BorderThickness="0,0,0,1" BorderBrush="#33000000" RequestedTheme="Light">
-                        <StackPanel Margin="18,24">
+                        <StackPanel Margin="18,30">
                             <Button Content="GERAR BOLETO" Padding="18" BorderThickness="1" BorderBrush="{StaticResource OpenBillBrush}" Foreground="{StaticResource OpenBillBrush}" HorizontalAlignment="Stretch" RequestedTheme="Dark"/>
                         </StackPanel>
                     </Border>
@@ -151,12 +152,12 @@
                 <StackPanel>
                     <Grid MinHeight="160" Background="{StaticResource FutureBillBrush}" RequestedTheme="Dark">
                         <StackPanel Margin="18" VerticalAlignment="Center">
-                            <TextBlock Text="{Binding Summary.TotalBalance, Converter={StaticResource CentsToCurrencyFormatConverter}}" Margin="0,3" FontWeight="SemiBold" FontSize="28" HorizontalAlignment="Center"/>
-                            <TextBlock Margin="0,3" FontWeight="Light" FontSize="18" HorizontalAlignment="Center">
+                            <TextBlock Text="{Binding Summary.TotalBalance, Converter={StaticResource CentsToCurrencyFormatConverter}}" FontWeight="Normal" FontSize="28" HorizontalAlignment="Center"/>
+                            <TextBlock FontWeight="Light" FontSize="18" HorizontalAlignment="Center">
                                 <Run Text="Vencimento"/>
                                 <Run Text="{Binding Summary.DueDate, Converter={StaticResource CustomDateFormatUpperCaseConverter}, ConverterParameter='d MMM'}"/>
                             </TextBlock>
-                            <TextBlock Text="FATURA PARCIAL" Margin="0,12,0,3" FontWeight="Light" FontSize="14" HorizontalAlignment="Center" Opacity="0.6"/>
+                            <TextBlock Text="FATURA PARCIAL" Margin="0,6,0,0" FontWeight="Light" FontSize="14" HorizontalAlignment="Center" Opacity="0.6"/>
                         </StackPanel>
                     </Grid>
 
@@ -178,17 +179,17 @@
         </Style>
     </Page.Resources>
 
-    <Grid x:Name="LayoutRoot" Background="White" DataContext="{Binding Source={StaticResource BillsViewModel}}" d:DataContext="{d:DesignData /SampleData/BillsViewModelSampleData.xaml}">
+    <Grid x:Name="LayoutRoot" Background="White" DataContext="{Binding Source={StaticResource BillsViewModel}}"  d:DataContext="{d:DesignData /SampleData/BillsViewModelSampleData.xaml}">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
         
-        <Pivot x:Name="HeaderMenuPivot" Margin="0,12,0,6" ItemsSource="{Binding}" DataContext="{Binding Bills}" HeaderTemplate="{StaticResource BillsPivotHeaderTemplate}" SelectionChanged="HeaderMenuPivot_SelectionChanged">
-            <Pivot.ItemTemplate>
+        <local:FixedPivot x:Name="HeaderMenuPivot" Margin="0,12,0,0" ItemsSource="{Binding}" BorderThickness="0,2,0,0" BorderBrush="Gray" DataContext="{Binding Bills}" HeaderTemplate="{StaticResource BillsPivotHeaderTemplate}" SelectionChanged="HeaderMenuPivot_SelectionChanged">
+            <local:FixedPivot.ItemTemplate>
                 <DataTemplate/>
-            </Pivot.ItemTemplate>
-        </Pivot>
+            </local:FixedPivot.ItemTemplate>
+        </local:FixedPivot>
 
         <local:ImprovedFlipView x:Name="BillFlipView" Grid.Row="1" ItemsSource="{Binding Bills}" ItemTemplateSelector="{StaticResource BillStateTemplateSelector}" SelectionChanged="BillFlipView_SelectionChanged"/>
     </Grid>

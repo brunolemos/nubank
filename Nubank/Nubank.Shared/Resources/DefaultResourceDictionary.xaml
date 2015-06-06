@@ -18,7 +18,6 @@
     <SolidColorBrush x:Key="OpenBillBrush" Color="#40AAB9"/>
     <SolidColorBrush x:Key="FutureBillBrush" Color="#F5A623"/>
 
-
     <SolidColorBrush x:Key="ToggleSwitchCurtainBackgroundThemeBrush" Color="{ThemeResource AppMainColor}"/>
     <SolidColorBrush x:Key="SliderTrackDecreaseBackgroundThemeBrush" Color="{ThemeResource AppMainColor}"/>
             
@@ -29,6 +28,7 @@
 
     <Style TargetType="ContentControl">
         <Setter Property="FontSize" Value="{StaticResource PhoneDefaultFontSize}"/>
+        <Setter Property="FontFamily" Value="Assets/Fonts/OpenSans-Regular.ttf#Open Sans"/>
     </Style>
 
     <Style TargetType="TextBlock">
