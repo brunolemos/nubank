@@ -51,9 +51,10 @@
             <Setter Property="Background" Value="White"/>
         </Style>
 
-        <!--<Style TargetType="FlipViewItem">
-            <Setter Property="MaxWidth" Value="500"/>
-        </Style>-->
+        <Style TargetType="FlipViewItem">
+            <Setter Property="Margin" Value="0.5"/>
+            <!--<Setter Property="MaxWidth" Value="500"/>-->
+        </Style>
     </Page.Resources>
 
     <Grid x:Name="LayoutRoot" Background="White">
@@ -62,14 +63,14 @@
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
         
-        <Pivot Margin="0,12,0,6" SelectedIndex="{Binding ElementName=BillFlipView, Path=SelectedIndex, Mode=TwoWay}">
+        <Pivot x:Name="HeaderMenuPivot" Margin="0,12,0,6" SelectionChanged="HeaderMenuPivot_SelectionChanged">
             <PivotItem Header="maio"/>
             <PivotItem Header="junho"/>
             <PivotItem Header="julho"/>
             <PivotItem Header="agosto"/>
         </Pivot>
 
-        <local:ImprovedFlipView Grid.Row="1" x:Name="BillFlipView">
+        <local:ImprovedFlipView Grid.Row="1" x:Name="BillFlipView" SelectionChanged="BillFlipView_SelectionChanged">
             <PivotItem Header="maio">
                 <ScrollViewer VerticalScrollBarVisibility="Visible" VerticalScrollMode="Enabled" Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
                     <StackPanel>
@@ -151,7 +152,7 @@
                             <StackPanel Margin="18" VerticalAlignment="Center">
                                 <TextBlock Text="R$ 1.890,80" Margin="0,3" FontWeight="SemiBold" FontSize="28" HorizontalAlignment="Center"/>
                                 <TextBlock Text="Vencimento 15 JUL" Margin="0,3" FontWeight="Light" FontSize="18" HorizontalAlignment="Center"/>
-                                <TextBlock Text="FECHAMENTO EM 5 JUL" Margin="0,18,0,3" FontWeight="Light" FontSize="14" HorizontalAlignment="Center" Opacity="0.6"/>
+                                <TextBlock Text="FECHAMENTO EM 5 JUL" Margin="0,12,0,3" FontWeight="Light" FontSize="14" HorizontalAlignment="Center" Opacity="0.6"/>
                             </StackPanel>
                         </Grid>
 
@@ -179,7 +180,7 @@
                             <StackPanel Margin="18" VerticalAlignment="Center">
                                     <TextBlock Text="R$ 350,00" Margin="0,3" FontWeight="SemiBold" FontSize="28" HorizontalAlignment="Center"/>
                                 <TextBlock Text="Vencimento 15 AGO" Margin="0,3" FontWeight="Light" FontSize="18" HorizontalAlignment="Center"/>
-                                <TextBlock Text="FATURA PARCIAL" Margin="0,18,0,3" FontWeight="Light" FontSize="14" HorizontalAlignment="Center" Opacity="0.6"/>
+                                <TextBlock Text="FATURA PARCIAL" Margin="0,12,0,3" FontWeight="Light" FontSize="14" HorizontalAlignment="Center" Opacity="0.6"/>
                             </StackPanel>
                         </Grid>
 

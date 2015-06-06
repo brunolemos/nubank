@@ -91,5 +91,15 @@ namespace Nubank
         }
 
         #endregion
+
+        private void HeaderMenuPivot_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (BillFlipView != null) BillFlipView.SelectedIndex = (sender as Pivot).SelectedIndex;
+        }
+
+        private void BillFlipView_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if(HeaderMenuPivot != null) HeaderMenuPivot.SelectedIndex = (sender as FlipView).SelectedIndex;
+        }
     }
 }
