@@ -2,7 +2,6 @@
     x:Class="Nubank.App"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:local="using:Nubank"
     RequestedTheme="Light">
 
     <Application.Resources>
@@ -15,8 +14,6 @@
                 <ResourceDictionary x:Key="Default" Source="ms-appx:///Resources/Themes/DarkThemeResourceDictionary.xaml"/>
                 <ResourceDictionary x:Key="Light" Source="ms-appx:///Resources/Themes/LightThemeResourceDictionary.xaml"/>
             </ResourceDictionary.ThemeDictionaries>
-
-            <!--<ViewModels:MainViewModel x:Key="MainViewModel" />-->
         </ResourceDictionary>
     </Application.Resources>
 

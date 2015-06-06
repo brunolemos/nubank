@@ -24,6 +24,9 @@ namespace Nubank
         public App()
         {
             this.InitializeComponent();
+
+            Windows.Globalization.ApplicationLanguages.PrimaryLanguageOverride = "pt-BR";
+
             this.Suspending += this.OnSuspending;
         }
 

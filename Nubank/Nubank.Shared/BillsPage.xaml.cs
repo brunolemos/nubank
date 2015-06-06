@@ -1,5 +1,5 @@
 ﻿using Nubank.Common;
-using Windows.UI;
+using Nubank.ViewModels;
 using Windows.UI.ViewManagement;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Media;
@@ -9,6 +9,8 @@ namespace Nubank
 {
     public sealed partial class BillsPage : Page
     {
+        public BillsViewModel viewModel { get { return (BillsViewModel)LayoutRoot.DataContext; } }
+
         public BillsPage()
         {
             this.InitializeComponent();
@@ -94,12 +96,14 @@ namespace Nubank
 
         private void HeaderMenuPivot_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            if (BillFlipView != null) BillFlipView.SelectedIndex = (sender as Pivot).SelectedIndex;
+            int index = (sender as Pivot).SelectedIndex;
+            if (BillFlipView != null && index >= 0) BillFlipView.SelectedIndex = index;
         }
 
         private void BillFlipView_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            if(HeaderMenuPivot != null) HeaderMenuPivot.SelectedIndex = (sender as FlipView).SelectedIndex;
+            int index = (sender as FlipView).SelectedIndex;
+            if (HeaderMenuPivot != null && index >= 0) HeaderMenuPivot.SelectedIndex = index;
         }
     }
 }

@@ -13,6 +13,12 @@
     <SolidColorBrush x:Key="AppSplashScreenBrush" Color="#56007f"/><!--263646-->
     <SolidColorBrush x:Key="ProgressBarIndeterminateForegroundThemeBrush" Color="{ThemeResource AppMainColor}"/>
 
+    <SolidColorBrush x:Key="OverdueBillBrush" Color="#7ED321"/>
+    <SolidColorBrush x:Key="ClosedBillBrush" Color="#E5615C"/>
+    <SolidColorBrush x:Key="OpenBillBrush" Color="#40AAB9"/>
+    <SolidColorBrush x:Key="FutureBillBrush" Color="#F5A623"/>
+
+
     <SolidColorBrush x:Key="ToggleSwitchCurtainBackgroundThemeBrush" Color="{ThemeResource AppMainColor}"/>
     <SolidColorBrush x:Key="SliderTrackDecreaseBackgroundThemeBrush" Color="{ThemeResource AppMainColor}"/>
             
@@ -45,7 +51,7 @@
     <Style TargetType="ListViewItem">
         <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
         <Setter Property="VerticalContentAlignment" Value="Top"/>
-        <Setter Property="MinHeight" Value="0"/>
+        <!--<Setter Property="MinHeight" Value="0"/>-->
         <!--<Setter Property="Margin" Value="0,0,0,-10"/>-->
     </Style>
 

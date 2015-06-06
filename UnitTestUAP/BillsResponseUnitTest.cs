@@ -19,7 +19,7 @@ namespace UnitTestUAP
         {
             StorageFile file = await StorageFile.GetFileFromApplicationUriAsync(new Uri("ms-appx:///bills.json"));
             string json = await FileIO.ReadTextAsync(file);
-            bills = JsonConvert.DeserializeObject<BillsResponse>(json).GetBills();
+            bills = JsonConvert.DeserializeObject<BillsResponse>(json).Bills;
         }
 
         [TestMethod]

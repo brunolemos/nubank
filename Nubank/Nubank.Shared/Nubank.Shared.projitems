@@ -25,12 +25,23 @@
     <Compile Include="$(MSBuildThisFileDirectory)Common\ObservableDictionary.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Common\RelayCommand.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Common\SuspensionManager.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Controls\BillStateTemplateSelector.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Controls\ImprovedFlipView.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Converters\BillStateToBrushConverter.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Converters\CustomDateFormatUpperCaseConverter.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Converters\CustomDateFormatLowerCaseConverter.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Converters\StringToUpperCaseConverter.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Converters\StringToLowerCaseConverter.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Converters\CustomDateFormatConverter.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Converters\CentsToCurrencyFormatConverter.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\Bill.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\Links.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\BillItem.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\ModelBase.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\Summary.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Utils\LocalizedResources.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModels\BillsViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModels\ViewModelBase.cs" />
   </ItemGroup>
   <ItemGroup>
     <Page Include="$(MSBuildThisFileDirectory)BillsPage.xaml">
@@ -49,9 +60,6 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="$(MSBuildThisFileDirectory)ViewModel\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="$(MSBuildThisFileDirectory)bills.json" />
