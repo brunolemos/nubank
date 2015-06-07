@@ -19,7 +19,6 @@
         <Converters:CustomDateFormatUpperCaseConverter x:Key="CustomDateFormatUpperCaseConverter"/>
         <Converters:BillStateToBrushConverter x:Key="BillStateToBrushConverter"/>
         <Converters:BillItemToBrushConverter x:Key="BillItemToBrushConverter"/>
-        <Converters:SortBilltemsConverter x:Key="SortBilltemsConverter"/>
         <Converters:NumberLowerThanNToVisibilityConverter x:Key="NumberLowerThanNToVisibilityConverter"/>
         <Converters:NumberGreaterThanNToVisibilityConverter x:Key="NumberGreaterThanNToVisibilityConverter"/>
         
@@ -92,7 +91,7 @@
                         </StackPanel>
                     </Border>
 
-                    <ListView ItemsSource="{Binding Items, Converter={StaticResource SortBilltemsConverter}}" Style="{StaticResource BillListViewStyle}"/>
+                    <ListView ItemsSource="{Binding Items}" Style="{StaticResource BillListViewStyle}"/>
                 </StackPanel>
             </ScrollViewer>
         </DataTemplate>
@@ -158,7 +157,7 @@
                         </StackPanel>
                     </Border>
 
-                    <ListView ItemsSource="{Binding Items, Converter={StaticResource SortBilltemsConverter}}" Style="{StaticResource BillListViewStyle}"/>
+                    <ListView ItemsSource="{Binding Items}" Style="{StaticResource BillListViewStyle}"/>
                 </StackPanel>
             </ScrollViewer>
         </DataTemplate>
@@ -186,7 +185,7 @@
                         </StackPanel>
                     </Border>
 
-                    <ListView ItemsSource="{Binding Items, Converter={StaticResource SortBilltemsConverter}}" Style="{StaticResource BillListViewStyle}"/>
+                    <ListView ItemsSource="{Binding Items}" Style="{StaticResource BillListViewStyle}"/>
                 </StackPanel>
             </ScrollViewer>
         </DataTemplate>
@@ -205,7 +204,7 @@
                         </StackPanel>
                     </Grid>
 
-                    <ListView ItemsSource="{Binding Items, Converter={StaticResource SortBilltemsConverter}}" Style="{StaticResource BillListViewStyle}"/>
+                    <ListView ItemsSource="{Binding Items}" Style="{StaticResource BillListViewStyle}"/>
                 </StackPanel>
             </ScrollViewer>
         </DataTemplate>
