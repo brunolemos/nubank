@@ -21,6 +21,7 @@
         <Converters:BillItemToBrushConverter x:Key="BillItemToBrushConverter"/>
         <Converters:NumberLowerThanNToVisibilityConverter x:Key="NumberLowerThanNToVisibilityConverter"/>
         <Converters:NumberGreaterThanNToVisibilityConverter x:Key="NumberGreaterThanNToVisibilityConverter"/>
+        <Converters:BillItemToInstallmentStringConverter x:Key="BillItemToInstallmentStringConverter"/>
         
         <ViewModels:BillsViewModel x:Key="BillsViewModel" />
 
@@ -50,15 +51,18 @@
                 <Grid HorizontalAlignment="Stretch">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="Auto"/>
-                        <ColumnDefinition Width="Auto" MinWidth="70"/>
+                        <ColumnDefinition Width="Auto" MinWidth="65"/>
                         <ColumnDefinition Width="*"/>
                         <ColumnDefinition Width="Auto"/>
                     </Grid.ColumnDefinitions>
 
-                    <Ellipse   Grid.Column="0" Margin="0,0,12,0" Width="10" Height="10" Fill="{Binding ElementName=BillItemContainer, Path=Foreground}" Opacity="0.5"/>
-                    <TextBlock Grid.Column="1" Margin="0,0,12,0" Text="{Binding PostDate, Converter={StaticResource CustomDateFormatUpperCaseConverter}, ConverterParameter='dd MMM'}" Opacity="0.5" FontSize="{StaticResource AppDefaultFontSize}"/>
-                    <TextBlock Grid.Column="2" Margin="0,0,12,0" Text="{Binding Title}" FontSize="{StaticResource AppDefaultFontSize}" MaxLines="1" TextWrapping="Wrap" TextTrimming="CharacterEllipsis"/>
-                    <TextBlock Grid.Column="3" Text="{Binding Amount, Converter={StaticResource CentsToPositiveCurrencyFormatConverter}, ConverterParameter=False}" FontSize="{StaticResource AppDefaultFontSize}" TextAlignment="Right" HorizontalAlignment="Right"/>
+                    <Ellipse   Grid.Column="0" Margin="0,0,10,0" Width="10" Height="10" Fill="{Binding ElementName=BillItemContainer, Path=Foreground}" Opacity="0.5"/>
+                    <TextBlock Grid.Column="1" Margin="0,0,10,0" Text="{Binding PostDate, Converter={StaticResource CustomDateFormatUpperCaseConverter}, ConverterParameter='dd MMM'}" MaxLines="1" Opacity="0.5" FontSize="{StaticResource AppDefaultFontSize}"/>
+                    <TextBlock Grid.Column="2" Margin="0,0,10,0" FontSize="{StaticResource AppDefaultFontSize}" MaxLines="1" TextWrapping="Wrap" TextTrimming="CharacterEllipsis">
+                        <Run Text="{Binding Converter={StaticResource BillItemToInstallmentStringConverter}}"/>
+                        <Run Text="{Binding Title}" />
+                    </TextBlock>
+                    <TextBlock Grid.Column="3" Text="{Binding Amount, Converter={StaticResource CentsToPositiveCurrencyFormatConverter}, ConverterParameter=False}" MaxLines="1" FontSize="{StaticResource AppDefaultFontSize}" TextAlignment="Right" HorizontalAlignment="Right"/>
                 </Grid>
             </ContentControl>
         </DataTemplate>
