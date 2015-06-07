@@ -16,21 +16,21 @@ namespace Nubank.Models
         public DateTime CloseDate { get; private set; }
 
         [DataMember(Name = "past_balance")]
-        public double PastBalance { get; private set; }
+        public int PastBalance { get; private set; }
 
         [DataMember(Name = "total_balance")]
-        public double TotalBalance { get; private set; }
+        public int TotalBalance { get; private set; }
 
         [DataMember(Name = "interest")]
-        public double Interest { get; private set; }
+        public int Interest { get; private set; }
 
         [DataMember(Name = "total_cumulative")]
-        public double TotalCumulative { get; private set; }
+        public int TotalCumulative { get; private set; }
 
         [DataMember(Name = "paid")]
-        public double Paid { get; private set; }
+        public int Paid { get; private set; }
 
         [DataMember(Name = "minimum_payment")]
-        public double MinimumPayment { get; private set; }
+        public int MinimumPayment { get; private set; }
     }
 }

@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Runtime.Serialization;
 
 namespace Nubank.Models
@@ -10,6 +11,6 @@ namespace Nubank.Models
     public class LinkContent
     {
         [DataMember(Name = "href")]
-        public string HREF { get; private set; }
+        public Uri HREF { get; private set; }
     }
 }

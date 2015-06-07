@@ -10,18 +10,18 @@ namespace Nubank.Models
         public DateTime PostDate { get; private set; }
 
         [DataMember(Name = "amount")]
-        public double Amount { get; private set; }
+        public int Amount { get; private set; }
 
         [DataMember(Name = "title")]
         public string Title { get; private set; }
 
         [DataMember(Name = "index")]
-        public short Index { get; private set; }
+        public ushort Index { get; private set; }
 
         [DataMember(Name = "charges")]
-        public short Charges { get; private set; }
+        public ushort Charges { get; private set; }
 
         [DataMember(Name = "href")]
-        public string HREF { get; private set; }
+        public Uri HREF { get; private set; }
     }
 }
