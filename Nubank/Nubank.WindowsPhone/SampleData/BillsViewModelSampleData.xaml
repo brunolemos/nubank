@@ -4,6 +4,11 @@
             <Models:Bill.Summary>
                 <Models:Summary OpenDate="2015-03-17" DueDate="2015-04-20" CloseDate="2015-04-07" PastBalance="0" TotalBalance="38933" Interest="0" TotalCumulative="38933" Paid="38933" MinimumPayment="5840"/>
             </Models:Bill.Summary>
+            
+            <Models:Bill.Items>
+                <Models:BillItem PostDate="2015-03-31" Amount="3850" Title="Rest Bolinha" Index="0" Charges="1" HREF="nuapp://transaction/551585a8-244c-4ab8-9dce-0113d465ad8e" />
+                <Models:BillItem PostDate="2015-03-31" Amount="12505" Title="Posto de Servico Dinam" Index="0" Charges="1" HREF="nuapp://transaction/55152410-5315-4aeb-b7f3-263170767191" />
+            </Models:Bill.Items>
         </Models:Bill>
 
         <Models:Bill State="CLOSED" ID="55256cd0-10f7-4fd3-a3be-213bfe01857d" Barcode="03394643200000389339646532300000001745800102" TypefulLine="03399.64652  32300.000000  17458.001025  4  64320000038933">

@@ -28,9 +28,12 @@
     <Compile Include="$(MSBuildThisFileDirectory)Controls\BillStateTemplateSelector.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Controls\FixedPivot.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Controls\ImprovedFlipView.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Converters\BillItemToBrushConverter.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Converters\BillStateToBrushConverter.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Converters\CentsToPositiveCurrencyFormatConverter.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Converters\CustomDateFormatUpperCaseConverter.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Converters\CustomDateFormatLowerCaseConverter.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Converters\SortBilltemsConverter.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Converters\StringToUpperCaseConverter.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Converters\StringToLowerCaseConverter.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Converters\CustomDateFormatConverter.cs" />
