@@ -25,7 +25,7 @@
         <ViewModels:BillsViewModel x:Key="BillsViewModel" />
 
         <DataTemplate x:Key="BillsPivotHeaderTemplate">
-            <TextBlock Margin="0,0,0,3" Text="{Binding Summary.OpenDate, Converter={StaticResource CustomDateFormatLowerCaseConverter}, ConverterParameter='MMMM'}" FontSize="24" Foreground="{Binding State, Converter={StaticResource BillStateToBrushConverter}}" Opacity="1"/>
+            <TextBlock Margin="0,0,0,3" Text="{Binding Summary.DueDate, Converter={StaticResource CustomDateFormatLowerCaseConverter}, ConverterParameter='MMMM'}" FontSize="24" Foreground="{Binding State, Converter={StaticResource BillStateToBrushConverter}}" Opacity="1"/>
         </DataTemplate>
 
         <DataTemplate x:Key="BillListViewHeaderTemplate">
