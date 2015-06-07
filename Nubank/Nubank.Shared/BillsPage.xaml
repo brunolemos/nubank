@@ -20,6 +20,9 @@
         <Converters:BillStateToBrushConverter x:Key="BillStateToBrushConverter"/>
         <Converters:BillItemToBrushConverter x:Key="BillItemToBrushConverter"/>
         <Converters:SortBilltemsConverter x:Key="SortBilltemsConverter"/>
+        <Converters:NumberLowerThanNToVisibilityConverter x:Key="NumberLowerThanNToVisibilityConverter"/>
+        <Converters:NumberGreaterThanNToVisibilityConverter x:Key="NumberGreaterThanNToVisibilityConverter"/>
+        
         <ViewModels:BillsViewModel x:Key="BillsViewModel" />
 
         <DataTemplate x:Key="BillsPivotHeaderTemplate">
@@ -81,10 +84,11 @@
                         </StackPanel>
                     </Grid>
 
+                    <!--Visibility="{Binding Summary.Paid, Converter={StaticResource NumberLowerThanNToVisibilityConverter}, ConverterParameter=0}"-->
                     <Border Background="White" BorderThickness="0,0,0,1" BorderBrush="#33000000" RequestedTheme="Light">
                         <StackPanel Margin="18,24">
                             <TextBlock Text="PAGAMENTO RECEBIDO" FontWeight="Light" FontSize="18" Foreground="{StaticResource OverdueBillBrush}" HorizontalAlignment="Center"/>
-                            <TextBlock Text="{Binding Summary.Paid, Converter={StaticResource CentsToCurrencyFormatConverter}}" FontWeight="Normal" FontSize="28" Foreground="{StaticResource OverdueBillBrush}" HorizontalAlignment="Center"/>
+                            <TextBlock Text="{Binding Summary.Paid, Converter={StaticResource CentsToPositiveCurrencyFormatConverter}}" FontWeight="Normal" FontSize="28" Foreground="{StaticResource OverdueBillBrush}" HorizontalAlignment="Center"/>
                         </StackPanel>
                     </Border>
 
@@ -108,24 +112,47 @@
 
                     <Border Background="White" BorderThickness="0,0,0,1" BorderBrush="#33000000" RequestedTheme="Light">
                         <StackPanel Margin="18,24">
-                            <Grid Margin="0,0,0,12">
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="*"/>
-                                    <ColumnDefinition Width="Auto"/>
-                                </Grid.ColumnDefinitions>
+                            <StackPanel Margin="0,0,0,12">
+                                <Grid Margin="0,0,0,6" Visibility="{Binding Summary.TotalCumulative, Converter={StaticResource NumberGreaterThanNToVisibilityConverter}, ConverterParameter=0}">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="Auto"/>
+                                    </Grid.ColumnDefinitions>
 
-                                <StackPanel Grid.Column="0">
-                                    <TextBlock Text="Gastos do mês" Margin="0,0,0,6" FontWeight="Light" Foreground="#686868"/>
-                                    <TextBlock Text="Valores não pagos" Margin="0,0,0,6" FontWeight="Light" Foreground="#686868"/>
-                                    <TextBlock Text="Juros 7,75%" Margin="0,0,0,6" FontWeight="Light" Foreground="#686868"/>
-                                </StackPanel>
+                                    <TextBlock Grid.Column="0" Text="Gastos do mês" FontWeight="Light"/>
+                                    <TextBlock Grid.Column="1" Text="{Binding Summary.TotalCumulative, Converter={StaticResource CentsToCurrencyFormatConverter}}" FontWeight="SemiBold" TextAlignment="Right"/>
+                                </Grid>
 
-                                <StackPanel Grid.Column="1">
-                                    <TextBlock Text="{Binding Summary.TotalCumulative, Converter={StaticResource CentsToCurrencyFormatConverter}}" Margin="0,0,0,6" FontWeight="SemiBold" Foreground="#686868" TextAlignment="Right"/>
-                                    <TextBlock Text="{Binding Summary.PastBalance, Converter={StaticResource CentsToCurrencyFormatConverter}}" Margin="0,0,0,6" FontWeight="SemiBold" Foreground="#686868" TextAlignment="Right"/>
-                                    <TextBlock Text="{Binding Summary.Interest, Converter={StaticResource CentsToCurrencyFormatConverter}}" Margin="0,0,0,6" FontWeight="SemiBold" Foreground="#686868" TextAlignment="Right"/>
-                                </StackPanel>
-                            </Grid>
+                                <Grid Margin="0,0,0,6" Visibility="{Binding Summary.PastBalance, Converter={StaticResource NumberGreaterThanNToVisibilityConverter}, ConverterParameter=0}">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="Auto"/>
+                                    </Grid.ColumnDefinitions>
+
+                                    <TextBlock Grid.Column="0" Text="Valor não pago" FontWeight="Light"/>
+                                    <TextBlock Grid.Column="1" Text="{Binding Summary.PastBalance, Converter={StaticResource CentsToCurrencyFormatConverter}}" FontWeight="SemiBold" TextAlignment="Right"/>
+                                </Grid>
+
+                                <Grid Margin="0,0,0,6" Visibility="{Binding Summary.PastBalance, Converter={StaticResource NumberLowerThanNToVisibilityConverter}, ConverterParameter=0}">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="Auto"/>
+                                    </Grid.ColumnDefinitions>
+
+                                    <TextBlock Grid.Column="0" Text="Valor pré-pago" FontWeight="Light"/>
+                                    <TextBlock Grid.Column="1" Text="{Binding Summary.PastBalance, Converter={StaticResource CentsToCurrencyFormatConverter}}" FontWeight="SemiBold" TextAlignment="Right"/>
+                                </Grid>
+
+                                <Grid Margin="0,0,0,6" Visibility="{Binding Summary.Interest, Converter={StaticResource NumberGreaterThanNToVisibilityConverter}, ConverterParameter=0}">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="Auto"/>
+                                    </Grid.ColumnDefinitions>
+
+                                    <TextBlock Grid.Column="0" Text="Juros 7,75%" FontWeight="Light"/>
+                                    <TextBlock Grid.Column="1" Text="{Binding Summary.Interest, Converter={StaticResource CentsToCurrencyFormatConverter}}" FontWeight="SemiBold" TextAlignment="Right"/>
+                                </Grid>
+                            </StackPanel>
 
                             <Button Content="GERAR BOLETO" Padding="18" BorderThickness="1" BorderBrush="{StaticResource ClosedBillBrush}" Foreground="{StaticResource ClosedBillBrush}" HorizontalAlignment="Stretch" RequestedTheme="Dark"/>
                         </StackPanel>

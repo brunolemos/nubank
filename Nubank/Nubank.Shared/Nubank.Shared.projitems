@@ -33,6 +33,8 @@
     <Compile Include="$(MSBuildThisFileDirectory)Converters\CentsToPositiveCurrencyFormatConverter.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Converters\CustomDateFormatUpperCaseConverter.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Converters\CustomDateFormatLowerCaseConverter.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Converters\NumberGreaterThanNToVisibilityConverter.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Converters\NumberLowerThanNToVisibilityConverter.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Converters\SortBilltemsConverter.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Converters\StringToUpperCaseConverter.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Converters\StringToLowerCaseConverter.cs" />
