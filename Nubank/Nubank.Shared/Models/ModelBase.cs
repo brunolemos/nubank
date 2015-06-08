@@ -4,7 +4,7 @@ using System.Runtime.Serialization;
 namespace Nubank.Models
 {
     [DataContract]
-    public class ModelBase : Notifiable
+    public abstract class ModelBase : Notifiable
     {
     }
 }

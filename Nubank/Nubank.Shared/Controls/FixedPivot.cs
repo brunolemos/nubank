@@ -21,8 +21,9 @@ namespace Nubank.Controls
             this.PivotHeaderPanel = (PivotHeaderPanel)this.GetTemplateChild("StaticHeader");
 #endif
 
-            this.SelectionChanged += (s, e) => UpdateHeaderItemsOpacity();
             this.Loaded += (s, e) => UpdateHeaderItemsOpacity();
+            this.DataContextChanged += (s, e) => UpdateHeaderItemsOpacity();
+            this.SelectionChanged += (s, e) => UpdateHeaderItemsOpacity();
         }
 
         private void UpdateHeaderItemsOpacity()
@@ -30,7 +31,8 @@ namespace Nubank.Controls
             if (PivotHeaderPanel == null) return;
 
             for (int i = 0; i < PivotHeaderPanel.Children.Count; i++)
-                (PivotHeaderPanel.Children[i] as PivotHeaderItem).ContentTemplateRoot.Opacity = this.SelectedIndex == i ? 1 : 0.4;
+                if ((PivotHeaderPanel.Children[i] as PivotHeaderItem).ContentTemplateRoot != null)
+                    (PivotHeaderPanel.Children[i] as PivotHeaderItem).ContentTemplateRoot.Opacity = this.SelectedIndex == i ? 1 : 0.4;
         }
     }
 }

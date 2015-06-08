@@ -97,13 +97,13 @@ namespace Nubank
         private void HeaderMenuPivot_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             int index = (sender as Pivot).SelectedIndex;
-            if (BillFlipView != null && index >= 0) BillFlipView.SelectedIndex = index;
+            if (BillFlipView != null && index >= 0 && BillFlipView.Items.Count > index + 1) BillFlipView.SelectedIndex = index;
         }
 
         private void BillFlipView_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             int index = (sender as FlipView).SelectedIndex;
-            if (HeaderMenuPivot != null && index >= 0) HeaderMenuPivot.SelectedIndex = index;
+            if (HeaderMenuPivot != null && index >= 0 && HeaderMenuPivot.Items.Count > index + 1) HeaderMenuPivot.SelectedIndex = index;
         }
     }
 }

@@ -1,28 +1,22 @@
-using Newtonsoft.Json;
-using Nubank.API.Responses;
+using Nubank.API;
 using Nubank.Models;
-using System;
 using System.Collections.Generic;
-using System.Threading.Tasks;
-using Windows.Storage;
 
 namespace Nubank.ViewModels
 {
-    public class BillsViewModel : ViewModelBase
+    public sealed class BillsViewModel : ViewModelBase
     {
         public List<Bill> Bills { get { return bills; } private set { bills = value; NotifyPropertyChanged("Bills"); } }
         private List<Bill> bills;
 
         public BillsViewModel()
         {
-            Init();
+            LoadBills();
         }
 
-        public async Task Init()
+        private async void LoadBills()
         {
-            StorageFile file = await StorageFile.GetFileFromApplicationUriAsync(new Uri("ms-appx:///bills.json"));
-            string json = await FileIO.ReadTextAsync(file);
-            Bills = JsonConvert.DeserializeObject<BillsResponse>(json).Bills;
+            Bills = await BillAPI.GetBills();
         }
     }
 }

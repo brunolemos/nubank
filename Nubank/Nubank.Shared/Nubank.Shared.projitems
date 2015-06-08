@@ -12,6 +12,12 @@
     <ApplicationDefinition Include="$(MSBuildThisFileDirectory)App.xaml">
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="$(MSBuildThisFileDirectory)API\BaseAPI.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)API\BillAPI.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)API\Exceptions\APIException.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)API\Exceptions\HttpServerGenericErrorException.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)API\Exceptions\HttpClientGenericErrorException.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)API\Exceptions\NoInternetAvailableException.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)API\Responses\BillsResponseItem.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)API\Responses\BillsResponse.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)App.xaml.cs">

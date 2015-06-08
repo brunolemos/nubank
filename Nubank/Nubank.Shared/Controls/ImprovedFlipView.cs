@@ -27,6 +27,7 @@ namespace Nubank.Controls
         {
 #if WINDOWS_PHONE_APP
             int index = (int)Math.Round(this.ScrollViewer.HorizontalOffset - 2);
+            if (this.Items.Count < index + 1) return;
 
             if (!isIndirectManupulation && this.SelectedIndex != index)
                 this.SelectedIndex = index;
