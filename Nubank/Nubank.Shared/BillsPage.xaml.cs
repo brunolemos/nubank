@@ -25,6 +25,8 @@ namespace Nubank
 
         private void OnLoaded(object sender, Windows.UI.Xaml.RoutedEventArgs e)
         {
+            App.RootFrame.Background = this.Background;
+
 #if WINDOWS_PHONE_APP
             var statusBar = StatusBar.GetForCurrentView();
 

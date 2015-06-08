@@ -77,17 +77,6 @@
     <Content Include="$(MSBuildThisFileDirectory)Assets\Fonts\OpenSans-Light.ttf" />
     <Content Include="$(MSBuildThisFileDirectory)Assets\Fonts\OpenSans-Regular.ttf" />
     <Content Include="$(MSBuildThisFileDirectory)Assets\Fonts\OpenSans-Semibold.ttf" />
-    <Content Include="$(MSBuildThisFileDirectory)Assets\Logo.scale-100.png" />
-    <Content Include="$(MSBuildThisFileDirectory)Assets\Logo.scale-240.png" />
-    <Content Include="$(MSBuildThisFileDirectory)Assets\SmallLogo.scale-100.png" />
-    <Content Include="$(MSBuildThisFileDirectory)Assets\SmallLogo.scale-240.png" />
-    <Content Include="$(MSBuildThisFileDirectory)Assets\SplashScreen.scale-100.png" />
-    <Content Include="$(MSBuildThisFileDirectory)Assets\SplashScreen.scale-240.png" />
-    <Content Include="$(MSBuildThisFileDirectory)Assets\Square71x71Logo.scale-240.png" />
-    <Content Include="$(MSBuildThisFileDirectory)Assets\StoreLogo.scale-100.png" />
-    <Content Include="$(MSBuildThisFileDirectory)Assets\StoreLogo.scale-240.png" />
-    <Content Include="$(MSBuildThisFileDirectory)Assets\WideLogo.scale-100.png" />
-    <Content Include="$(MSBuildThisFileDirectory)Assets\WideLogo.scale-240.png" />
     <Content Include="$(MSBuildThisFileDirectory)bills.json" />
   </ItemGroup>
 </Project>

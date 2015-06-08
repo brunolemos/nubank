@@ -16,6 +16,7 @@ namespace Nubank
 #if WINDOWS_PHONE_APP
         private TransitionCollection transitions;
 #endif
+        public static Frame RootFrame { get { return Window.Current.Content as Frame; } }
 
         /// <summary>
         /// Initializes the singleton application object.  This is the first line of authored code
