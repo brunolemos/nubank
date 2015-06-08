@@ -14,7 +14,7 @@
   <mp:PhoneIdentity PhoneProductId="81ad1567-e37f-443e-a2e3-a266db9fe357" PhonePublisherId="00000000-0000-0000-0000-000000000000"/>
 
   <Properties>
-    <DisplayName>Nubank.UAP</DisplayName>
+    <DisplayName>Nubank</DisplayName>
     <PublisherDisplayName>bruno</PublisherDisplayName>
     <Logo>Assets\StoreLogo.png</Logo>
   </Properties>

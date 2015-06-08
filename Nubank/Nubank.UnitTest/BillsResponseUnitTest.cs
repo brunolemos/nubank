@@ -7,7 +7,7 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using Windows.Storage;
 
-namespace UnitTestUAP
+namespace Nubank
 {
     [TestClass]
     public class BillsResponseUnitTest

@@ -12,8 +12,8 @@
   <mp:PhoneIdentity PhoneProductId="fd34b57d-9e0d-4708-bd10-612fd519aac5" PhonePublisherId="00000000-0000-0000-0000-000000000000"/>
 
   <Properties>
-    <DisplayName>UnitTestUAP</DisplayName>
-    <PublisherDisplayName>bruno</PublisherDisplayName>
+    <DisplayName>Nubank</DisplayName>
+    <PublisherDisplayName>Bruno Lemos</PublisherDisplayName>
     <Logo>Assets\StoreLogo.png</Logo>
   </Properties>
 
@@ -29,10 +29,10 @@
         Executable="vstest.executionengine.appcontainer.uap.exe"
         EntryPoint="Microsoft.VisualStudio.TestPlatform.TestExecutor.AppContainer.App">
       <uap:VisualElements
-        DisplayName="UnitTestUAP"
+        DisplayName="Nubank"
         Square150x150Logo="Assets\Logo.png"
         Square44x44Logo="Assets\SmallLogo.png"
-        Description="UnitTestUAP"
+        Description="Nubank Unit Test"
         BackgroundColor="#464646">
         <uap:SplashScreen Image="Assets\SplashScreen.png" />
       </uap:VisualElements>
