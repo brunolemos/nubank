@@ -1,5 +1,6 @@
 ﻿using Nubank.Common;
 using Nubank.ViewModels;
+using Windows.UI;
 using Windows.UI.ViewManagement;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Media;
@@ -28,7 +29,7 @@ namespace Nubank
             var statusBar = StatusBar.GetForCurrentView();
 
             statusBar.BackgroundOpacity = 1;
-            statusBar.BackgroundColor = (Background as SolidColorBrush).Color;
+            statusBar.BackgroundColor = Colors.White;
             statusBar.ForegroundColor = (Foreground as SolidColorBrush).Color;
 #endif
         }
@@ -97,13 +98,13 @@ namespace Nubank
         private void HeaderMenuPivot_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             int index = (sender as Pivot).SelectedIndex;
-            if (BillFlipView != null && index >= 0 && BillFlipView.Items.Count > index + 1) BillFlipView.SelectedIndex = index;
+            if (BillFlipView != null && index >= 0 && BillFlipView.Items.Count >= index + 1) BillFlipView.SelectedIndex = index;
         }
 
         private void BillFlipView_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             int index = (sender as FlipView).SelectedIndex;
-            if (HeaderMenuPivot != null && index >= 0 && HeaderMenuPivot.Items.Count > index + 1) HeaderMenuPivot.SelectedIndex = index;
+            if (HeaderMenuPivot != null && index >= 0 && HeaderMenuPivot.Items.Count >= index + 1) HeaderMenuPivot.SelectedIndex = index;
         }
     }
 }

@@ -8,7 +8,7 @@
     xmlns:Converters="using:Nubank.Converters"
     xmlns:ViewModels="using:Nubank.ViewModels"
     mc:Ignorable="d"
-    Background="White"
+    Background="{StaticResource ApplicationPageBackgroundThemeBrush}"
     Foreground="#686868"
     FontFamily="Assets/Fonts/OpenSans-Regular.ttf#Open Sans">
 
@@ -75,7 +75,7 @@
         </Style>
 
         <DataTemplate x:Key="OverdueBillDataTemplate">
-            <ScrollViewer VerticalScrollBarVisibility="Visible" VerticalScrollMode="Enabled" Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" FontSize="{StaticResource AppDefaultFontSize}">
+            <ScrollViewer VerticalScrollBarVisibility="Visible" VerticalScrollMode="Enabled"  FontSize="{StaticResource AppDefaultFontSize}">
                 <StackPanel>
                     <Grid MinHeight="150" Background="{StaticResource OverdueBillBrush}" RequestedTheme="Dark">
                         <StackPanel Margin="18" VerticalAlignment="Center">
@@ -101,7 +101,7 @@
         </DataTemplate>
 
         <DataTemplate x:Key="ClosedBillDataTemplate">
-            <ScrollViewer VerticalScrollBarVisibility="Visible" VerticalScrollMode="Enabled" Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" FontSize="{StaticResource AppDefaultFontSize}">
+            <ScrollViewer VerticalScrollBarVisibility="Visible" VerticalScrollMode="Enabled"  FontSize="{StaticResource AppDefaultFontSize}">
                 <StackPanel>
                     <Grid MinHeight="150" Background="{StaticResource ClosedBillBrush}" RequestedTheme="Dark">
                         <StackPanel Margin="18,24" VerticalAlignment="Center">
@@ -167,7 +167,7 @@
         </DataTemplate>
 
         <DataTemplate x:Key="OpenBillDataTemplate">
-            <ScrollViewer VerticalScrollBarVisibility="Visible" VerticalScrollMode="Enabled" Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" FontSize="{StaticResource AppDefaultFontSize}">
+            <ScrollViewer VerticalScrollBarVisibility="Visible" VerticalScrollMode="Enabled"  FontSize="{StaticResource AppDefaultFontSize}">
                 <StackPanel>
                     <Grid MinHeight="150" Background="{StaticResource OpenBillBrush}" RequestedTheme="Dark">
                         <StackPanel Margin="18,24" VerticalAlignment="Center">
@@ -195,7 +195,7 @@
         </DataTemplate>
 
         <DataTemplate x:Key="FutureBillDataTemplate">
-            <ScrollViewer VerticalScrollBarVisibility="Visible" VerticalScrollMode="Enabled" Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" FontSize="{StaticResource AppDefaultFontSize}">
+            <ScrollViewer VerticalScrollBarVisibility="Visible" VerticalScrollMode="Enabled"  FontSize="{StaticResource AppDefaultFontSize}">
                 <StackPanel>
                     <Grid MinHeight="150" Background="{StaticResource FutureBillBrush}" RequestedTheme="Dark">
                         <StackPanel Margin="18,25" VerticalAlignment="Center">
@@ -226,13 +226,13 @@
         </Style>
     </Page.Resources>
 
-    <Grid x:Name="LayoutRoot" Background="White" DataContext="{Binding Source={StaticResource BillsViewModel}}"  d:DataContext="{d:DesignData /SampleData/BillsViewModelSampleData.xaml}">
+    <Grid x:Name="LayoutRoot" DataContext="{Binding Source={StaticResource BillsViewModel}}"  d:DataContext="{d:DesignData /SampleData/BillsViewModelSampleData.xaml}">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
         
-        <local:FixedPivot x:Name="HeaderMenuPivot" Margin="0,12,0,0" ItemsSource="{Binding}" BorderThickness="0,2,0,0" BorderBrush="Gray" DataContext="{Binding Bills}" HeaderTemplate="{StaticResource BillsPivotHeaderTemplate}" SelectionChanged="HeaderMenuPivot_SelectionChanged">
+        <local:FixedPivot x:Name="HeaderMenuPivot" Margin="0,12,0,0" Background="White" ItemsSource="{Binding}" BorderThickness="0,2,0,0" BorderBrush="Gray" DataContext="{Binding Bills}" HeaderTemplate="{StaticResource BillsPivotHeaderTemplate}" SelectionChanged="HeaderMenuPivot_SelectionChanged">
             <local:FixedPivot.ItemTemplate>
                 <DataTemplate/>
             </local:FixedPivot.ItemTemplate>
@@ -240,4 +240,12 @@
 
         <local:ImprovedFlipView x:Name="BillFlipView" Grid.Row="1" ItemsSource="{Binding Bills}" ItemTemplateSelector="{StaticResource BillStateTemplateSelector}" SelectionChanged="BillFlipView_SelectionChanged"/>
     </Grid>
+    
+    <Page.BottomAppBar>
+        <CommandBar Background="{StaticResource ApplicationPageBackgroundThemeBrush}" Foreground="{StaticResource AppMainBrush}">
+            <CommandBar.PrimaryCommands>
+                <AppBarButton Icon="Refresh" Label="atualizar" Command="{Binding LoadBillsCommand, Source={StaticResource BillsViewModel}}"/>
+            </CommandBar.PrimaryCommands>
+        </CommandBar>
+    </Page.BottomAppBar>
 </Page>
